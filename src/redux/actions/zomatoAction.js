@@ -7,18 +7,14 @@ export const FetchData = () => {
       type: ZOMATO_START,
     });
     try {
-      const res = await Axios.get('https://developers.zomato.com/api/v2.1/search?start=1&count=10&sort=rating', {
-        headers: {
-          "user-key": "74b25737566cc5cfe2644bcdf3265f8e"
-        }
-      })
-      console.log(res.data.restaurants[0]);
+      const res = await Axios.get('https://api.thecatapi.com/v1/images/search?api_key=634a4df1-603b-4ad0-938a-0a680e49aaf4&limit=10');
+      // console.log(res.data);
       dispatch({
         type: ZOMATO_SUCCESS,
-        payload: res.data.restaurants,
+        payload: res.data,
       });
     } catch (err) {
-      console.log(err);
+      console.log(err.message);
       dispatch({
         type: ZOMATO_FAILED,
         payload: err,
@@ -27,9 +23,10 @@ export const FetchData = () => {
   };
 };
 
-export const GetDetail = restaurant => {
+export const GetDetail = cat => {
+    console.log(cat);
     return {
       type: ZOMATO_DETAIL,
-      payload: restaurant,
+      payload: cat,
     };
 };

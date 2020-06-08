@@ -5,8 +5,7 @@ import { Icon } from 'react-native-elements';
 const WelcomeIcon = () => {
   return ( 
     <View style={styles.logo}>
-      <Text style={styles.logoText}>TomatoApp</Text>
-      <Icon type="material-community" name="food" size={100} color="tomato" />
+      <Icon name="android" size={100} color="#3DDC84" />
     </View>
   );
 };
@@ -18,11 +17,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 50,
-  },
-  logoText: {
-    fontSize: 50,
-    fontWeight: "bold",
-    color: "tomato",
   },
 });
 

@@ -1,18 +1,7 @@
 import { ZOMATO_DETAIL } from '../Types';
 
 const initial_state = {
-  name: '',
-  featured_image: '',
-  user_rating: {
-      aggregate_rating: ''
-  },
-  location: {
-      address: ''
-  },
-  cuisines: '',
-  timings: '',
-  currency: '',
-  average_cost_for_two: ''
+  url: '',
 }
 
 export const detailReducer = (state = initial_state, action) => {

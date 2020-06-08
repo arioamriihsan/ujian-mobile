@@ -11,7 +11,7 @@ const TabNav = ({navigation}) => {
     <Tab.Navigator
       initialRouteName="HomeNav"
       tabBarOptions={{
-        activeTintColor: "tomato",
+        activeTintColor: "#3DDC84",
         inactiveTintColor: "gray",
         showLabel: false
       }}
@@ -22,7 +22,7 @@ const TabNav = ({navigation}) => {
           if (route.name === "HomeNav") {
             iconName = "home";
           } else if (route.name === "Logout") {
-            iconName = "restaurant-menu"
+            iconName = "account-box"
           }
           return <Icon name={iconName} size={35} color={color} />
         }

@@ -4,6 +4,7 @@ import {
   AUTH_SUCCESS,
   AUTH_FAILED,
   AUTH_LOG_OUT,
+  AUTH_DP_SUCCESS
 } from '../Types';
 
 export const LoginAction = username => {
@@ -57,3 +58,19 @@ export const LogoutAction = () => {
     });
   };
 };
+
+// export const ChangeDPAction = (id, dp) => {
+//   return async dispatch => {
+//     dispatch({
+//       type: AUTH_START,
+//     });
+//     try {
+//       dispatch({
+//         type: AUTH_DP_SUCCESS,
+//         payload: 
+//       })
+//     } catch(err) {
+
+//     }
+//   };
+// };

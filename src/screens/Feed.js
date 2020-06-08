@@ -10,65 +10,31 @@ const Feed = ({navigation}) => {
   console.log(navigation);
 
   const dispatch = useDispatch();
-  const username = useSelector(state => state.auth.username);
+  // const username = useSelector(state => state.auth.username);
   const data = useSelector(state => state.data.restaurants);
-
+  
   useEffect(() => {
     dispatch(FetchData());
   }, [dispatch]);
 
-  const handlePress = restaurant => {
-    dispatch(GetDetail(restaurant));
+  const handlePress = image => {
+    console.log(image);
+    dispatch(GetDetail(image));
     navigation.navigate("Detail");
   };
 
   return (
     <View style={styles.container}>
-      <Header
-        rightComponent={{
-          text: `Hallo, ${username}`,
-          style: { color: 'white', fontSize: 18, fontWeight: '700' },
-        }}
-        leftComponent={{
-          icon: 'ticket-account',
-          color: 'white',
-          type: 'material-community',
-          size: 30,
-        }}
-        containerStyle={{
-          backgroundColor: 'tomato',
-          justifyContent: 'space-around',
-          marginTop: Platform.OS === 'ios' ? 0 : - 7,
-        }}
-        rightContainerStyle={{
-          flex: 3,
-        }}
-      />
-      <View style={{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        paddingTop: 10,
-        backgroundColor: "#fff",
-      }}>
-        <Icons icons={'credit-card'} types={'entypo'} name={'Credit'} />
-        <Icons icons={'food-variant'} types={'material-community'} name={'Variant'} />
-        <Icons icons={'food-fork-drink'} types={'material-community'} name={'Recipe'} />
-        <Icons icons={'location-pin'} types={'entypo'} name={'Location'} />
-        <Icons icons={'shopping-cart'} types={'font-awesome'} name={'Cart'} />
-        <Icons icons={'local-pizza'} types={'material'} name={'Pizza'} />
-        <Icons icons={'hamburger'} types={'material-community'} name={'Burger'} />
-        <Icons icons={'more-horizontal'} types={'feather'} name={'More'} />
-      </View>
       <FlatList 
         data={data}
         renderItem={({item}) => (
-          <TouchableWithoutFeedback onPress={() => handlePress(item.restaurant)}>
+          <TouchableWithoutFeedback onPress={() => handlePress(item)}>
             <View style={{ width: "50%", height: 250 }}>
-              <FoodCard data={item.restaurant} />
+              <FoodCard data={item} />
             </View>
           </TouchableWithoutFeedback>
         )}
-        keyExtractor={item => item.restaurant.name}
+        keyExtractor={({}, index) => index.toString()}
         style={{ width: "98%" }}
         numColumns={2}
       />
